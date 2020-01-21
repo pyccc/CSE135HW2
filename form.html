@@ -1,0 +1,140 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<title>CSE135 HW1</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Bootstrap -->
+	<link href="styles/bootstrap.min.css" rel="stylesheet">
+	<link href="styles/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="styles/main.css" rel="stylesheet">
+	<!-- this is a comment in HTML -->
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+	<form action="/post.php" method="post" class="form-example">
+		<h1>New Form</h1>
+		<div class="form-example">
+		  <label for="name">Username </label>
+		  <input type="text" placeholder="Username (required)" name="name" id="name" required>
+		  <label for="pid">Password: </label>
+		  <input type="password" name="password" id="password" required><br>
+		  <label for="email">Email: </label>
+		  <input type="email" name="email" id="email" required><br>
+		  <label for="dob">Date of birth: </label>
+		  <input type="date" name="dob" id="dob" required><br>
+		  <label for="url">Url: </label>
+		  <input type="url" name="url" id="url" required><br>
+		</div><br>
+
+		<label for="background-select">User type: </label>
+		<select id="background-select">
+			<optgroup label="Type">
+				<option>Type1</option>
+				<option>Type2</option>
+				<option>Type3</option>
+			</optgroup>
+		</select><br>
+
+		<label for="progress">Progrss1:</label>
+		<meter id="progress" min="0" max="100" low="20" high="80" optimum="80" value="30">
+		at 30/100</meter><br><br>
+
+		<label for="topics">Select a topic</label>
+		<input list="topic" id="topics" name="topics" />
+		<datalist id="topic">
+			<option value="topic1">
+			<option value="topic2">
+			<option value="topic3">
+		</datalist><br>
+
+		
+	
+		<label for="progress2">Progress2:</label>
+		<progress id="progress2" max="100" value="80"> 80% </progress><br><br> 
+
+		<fieldset>
+			<legend>Score yourself:</legend>
+		
+			<input type="radio" name="High">
+			<label for="High">10</label><br/>
+			<input type="radio" name="Medium">
+			<label for="Medium">5</label><br/>
+			<input type="radio" name="Low">
+			<label for="Low">1</label>
+		</fieldset><br>
+
+		<label for="story">Others:</label><br>
+		<textarea id="others" name="others" rows="10" cols="50">Others:</textarea><br><br>
+
+		<button type="button">Unused button</button>
+		<div>
+		  <input type="submit" value="Register">
+		</div>
+		
+	</form>
+</body>
+
+<footer class="footer-distributed">
+
+	<div class="footer-left">
+
+		<h3>My<span>Website</span></h3>
+
+	</div>
+
+	<div class="footer-center">
+		<section>
+
+			<address>
+				Written by <a href="mailto:y1peng@ucsd.edu">Yucheng Peng</a>.<br>
+				Visit me at:<br>
+				Lower Kent Ridge Road<br>
+				Singapore
+			</address>
+
+		</section>
+
+		<div>
+			<p>858-214-0578</p>
+		</div>
+
+	</div>
+
+	<div class="footer-right">
+
+		<p class="footer-me-about">
+			<details>
+				<summary>Myself</summary>
+				Happy coding.
+				I like CSE135. This is an interesting course for me.
+			</details>
+
+		</p>
+		<div class="footer-icons">
+
+			<a>
+				<i class="fab fa-facebook-square"></i>
+			</a>
+
+			<a>
+				<i class="logo-angular"></i>
+			</a>
+
+			<a>
+				<i class="logo-github"></i>
+			</a>
+		</div>
+	</div>
+</footer>
+
+</html>
