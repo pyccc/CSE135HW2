@@ -1,0 +1,20 @@
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    color: black;
+  }
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+caption{
+    text-align: center;
+    font-size: 20px;
+}
+#purgeall{
+    font-size: 30px;
+    background-color: pink;
+}
+#dynamic {
+    scroll-behavior: smooth;
+}

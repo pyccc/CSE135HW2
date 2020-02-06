@@ -10,9 +10,21 @@
 	<link href="styles/bootstrap.min.css" rel="stylesheet">
 	<link href="styles/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="styles/main.css" rel="stylesheet">
+	<link href="css/hw2.css" rel="stylesheet">
+	<div class="project">
+		<p>URLs</p>
+		<nav style="background-color: aliceblue;">
+			<a href="images.html">images</a> |
+			<a href="externals.html">externals</a> |
+			<a href="table_and_lists.html">table_and_lists</a> |
+			<a href="form.html">form</a>
+			
+		</nav>
+	</div>
 </head>
 
 <body>
+	<li><button id="testButton" onclick="window.open('reportertest.html')">Reporter test</button></li>
 	<img src="images/a.gif" alt="gif" width="100" height="100"> &nbsp; &nbsp;
 	<img src="images/0.gif" alt="animated_gif" width="250" height="200"> &nbsp; &nbsp;
 	<picture>
@@ -25,7 +37,21 @@
 	<br><br><br>
 	<img src="images/2.png" alt="animated png" width="200" height="200"> &nbsp; &nbsp;
 	<img src="images/4.webp" alt="webp" width="300" height="200"> &nbsp; &nbsp;
-	<img src="images/7.svg" alt="svg" width="300" height="200">
+	<img id = "testimg" src="images/7.svg" alt="svg" width="300" height="200">
+
+	<script src="scripts/report.js"></script>
+	<script>
+		setTimeout(function () {
+			//using timeout to make sure the js file has enough time to load
+			let js = document.querySelector("script[src*='"+"report.js"+"']");
+			if (js) {
+				console.log("js");
+				localStorage.setItem("javascript", true);
+			} else {
+				localStorage.setItem("javascript", false);
+			}
+		},1000);
+	</script>
 </body>
 
 <footer class="footer-distributed">

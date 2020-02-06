@@ -10,6 +10,7 @@
 	<link href="styles/bootstrap.min.css" rel="stylesheet">
 	<link href="styles/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="styles/main.css" rel="stylesheet">
+	<link href="css/hw2.css" rel="stylesheet">
 	<!-- this is a comment in HTML -->
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -17,32 +18,32 @@
 	<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
+	<![endif]-->
+	<div class="project">
+		<p>URLs</p>
+		<nav style="background-color: aliceblue;">
+			<a href="images.html">images</a> |
+			<a href="externals.html">externals</a> |
+			<a href="table_and_lists.html">table_and_lists</a> |
+			<a href="form.html">form</a>
+			
+		</nav>
+	</div>
 </head>
 
 <body class="mainbody">
 	
+	<script src="scripts/report.js"></script>
+	<li><button id="testButton" onclick="window.open('reportertest.html')">Reporter test</button></li>
 	<main>
 
-
+		<img id="testimg" src="images/lorempixel.technics.2.jpeg" alt="Lorem Pixel image" class="img">
 		<div class="container">
 			<header>Self Page</header>
-			<div class="jumbotron">
+			<div>
 				<h1>Yucheng Peng</h1>
 				<h2>I am an exchange student from Singapore.</h2>
 				<p>Major in &hearts; <em>Computer Science!</em></p>
-			</div>
-
-			<div class="project">
-				<img src="images/lorempixel.technics.2.jpeg" alt="Lorem Pixel image" class="img">
-				<p>URLs</p>
-				<nav style="background-color: aliceblue;">
-					<a href="images.html">images</a> |
-					<a href="externals.html">externals</a> |
-					<a href="table_and_lists.html">table_and_lists</a> |
-					<a href="form.html">form</a>
-					
-				</nav>
 			</div>
 			<div class="project">
 				<pre>
@@ -72,6 +73,18 @@
 	<!-- Include all compiled plugins (blelow), or include individual files as needed -->
 	<script src="scripts/bootstrap.min.js"></script>
 	<script src="scripts/main.js"></script>
+	<script>
+		setTimeout(function () {
+			//using timeout to make sure the js file has enough time to load
+			let js = document.querySelector("script[src*='"+"report.js"+"']");
+			if (js) {
+				console.log("js");
+				localStorage.setItem("javascript", true);
+			} else {
+				localStorage.setItem("javascript", false);
+			}
+		},1000);
+	</script>
 </body>
 
 <footer class="footer-distributed">

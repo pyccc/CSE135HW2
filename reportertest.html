@@ -1,0 +1,552 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<title>CSE135 HW1</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Bootstrap -->
+	<link href="styles/bootstrap.min.css" rel="stylesheet">
+	<link href="styles/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="styles/main.css" rel="stylesheet">
+	<link href="css/hw2.css" rel="stylesheet">
+	<link href="css/reportertest.css" rel="stylesheet">
+	<!-- this is a comment in HTML -->
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	<![endif]-->
+	<div class="project">
+		<p>URLs</p>
+		<nav style="background-color: aliceblue;">
+			<a href="images.html">images</a> |
+			<a href="externals.html">externals</a> |
+			<a href="table_and_lists.html">table_and_lists</a> |
+			<a href="form.html">form</a>
+
+		</nav>
+	</div>
+</head>
+
+<body>
+	<button id="refresh" onclick="refresh()">Refresh whole page</button>
+	<script>
+		function refresh() {
+			location.reload();
+		}
+	</script>
+
+	<table>
+		<caption>
+			Static Collected Data
+		</caption>
+		<tr>
+			<td>
+				<p id="useragent">user-agent</p>
+			</td>
+			<td>
+				<p id="user-agent"></p>
+				<script>
+					document.getElementById("user-agent").innerHTML = localStorage.getItem("userAgent");;
+				</script>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p id="userlanguage">user-language</p>
+			</td>
+			<td>
+				<p id="user-language"></p>
+				<script>
+					document.getElementById("user-language").innerHTML = localStorage.getItem("userLanguage");
+				</script>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p id="cookies">cookies</p>
+			</td>
+			<td>
+				<p id="cookie1"></p>
+				<script>
+					document.getElementById("cookie1").innerHTML = localStorage.getItem("cookie");
+				</script>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>js_on</p>
+			</td>
+			<td>
+				<p id="javascript"></p>
+				<script>
+					if (document.querySelector("script[src*='" + "report.js" + "']")) {
+						localStorage.setItem("javascript", true);
+						document.getElementById("javascript").innerHTML = localStorage.getItem("javascript");
+					} else {
+						document.getElementById("javascript").innerHTML = localStorage.getItem("javascript");
+					}
+				</script>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>images_on</p>
+			</td>
+			<td>
+				<p id="image"></p>
+				<script>
+					document.getElementById("image").innerHTML = localStorage.getItem("images");
+				</script>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>css_on</p>
+			</td>
+			<td>
+				<p id="get_css"></p>
+				<script>
+					document.getElementById("get_css").innerHTML = localStorage.getItem("css");
+				</script>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>sizewidth</p>
+			</td>
+			<td>
+				<p id="sizewidth"></p>
+				<script>
+					document.getElementById("sizewidth").innerHTML = localStorage.getItem("monitorWidth");
+				</script>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>sizeheight</p>
+			</td>
+			<td>
+				
+				<p id="sizeheight"></p>
+				<script>
+					document.getElementById("sizeheight").innerHTML = localStorage.getItem("monitorHeight");
+				</script>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>window-width</p>
+			</td>
+			<td>
+				<p id="windowwidth"></p>
+				<script> 
+					document.getElementById("windowwidth").innerHTML = localStorage.getItem("windowWidth");
+				</script>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>window-height</p>
+			</td>
+			<td>
+				<p id="windowheight"></p>
+				<script>
+					document.getElementById("windowheight").innerHTML = localStorage.getItem("windowHeight");
+				</script>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>connection-type</p>
+			</td>
+			<td>
+				<p id="connection-type"></p>
+				<script>
+					document.getElementById("connection-type").innerHTML = localStorage.getItem("connectionType");
+				</script>
+			</td>
+		</tr>
+	</table>
+	<br><br>
+
+	<table>
+		<caption>
+			Performance Information(Display only if you have loaded the page)
+		</caption>
+
+		<tr>
+			<th>
+				click to display
+			</th>
+			<th>
+				Initial time
+			</th>
+			<th>
+				End Time
+			</th>
+			<th>
+				Total Time
+			</th>
+
+		</tr>
+		<tr>
+			<td>
+				<button onclick="get_testpage()">test_page</button></td>
+			<td>
+				<p id="test_page_initial"></p>
+			</td>
+			<td>
+				<p id="test_page_end"></p>
+			</td>
+			<td>
+				<p id="test_page_total"></p>
+			</td>
+			<script>
+				function get_testpage() {
+					document.getElementById("test_page_initial").innerHTML = localStorage.getItem("reportertest.html_initial");
+					document.getElementById("test_page_end").innerHTML = localStorage.getItem("reportertest.html_end");
+					document.getElementById("test_page_total").innerHTML = localStorage.getItem("reportertest.html_total");
+				}
+			</script>
+		</tr>
+		<tr>
+			<td>
+				<button onclick="get_indexpage()">index_page</button></td>
+			<td>
+				<p id="index_page_initial"></p>
+			</td>
+			<td>
+				<p id="index_page_end"></p>
+			</td>
+			<td>
+				<p id="index_page_total"></p>
+			</td>
+			<script>
+				function get_indexpage() {
+					document.getElementById("index_page_initial").innerHTML = localStorage.getItem("index.html_initial");
+					document.getElementById("index_page_end").innerHTML = localStorage.getItem("index.html_end");
+					document.getElementById("index_page_total").innerHTML = localStorage.getItem("index.html_total");;
+				}
+			</script>
+		</tr>
+		<tr>
+			<td>
+				<button onclick="get_imagepage()">image_page</button></td>
+			<td>
+				<p id="image_page_initial"></p>
+			</td>
+			<td>
+				<p id="image_page_end"></p>
+			</td>
+			<td>
+				<p id="image_page_total"></p>
+			</td>
+			<script>
+				function get_imagepage() {
+					document.getElementById("image_page_initial").innerHTML = localStorage.getItem("images.html_initial");
+					document.getElementById("image_page_end").innerHTML = localStorage.getItem("images.html_end");
+					document.getElementById("image_page_total").innerHTML = localStorage.getItem("images.html_total");
+				}
+			</script>
+		</tr>
+		<tr>
+			<td>
+				<button onclick="get_formpage()">form_page</button></td>
+			<td>
+				<p id="form_page_initial"></p>
+			</td>
+			<td>
+				<p id="form_page_end"></p>
+			</td>
+			<td>
+				<p id="form_page_total"></p>
+			</td>
+			<script>
+				function get_formpage() {
+					document.getElementById("form_page_initial").innerHTML = localStorage.getItem("form.html_initial");
+					document.getElementById("form_page_end").innerHTML = localStorage.getItem("form.html_end");
+					document.getElementById("form_page_total").innerHTML = localStorage.getItem("form.html_total");
+				}
+			</script>
+		</tr>
+		<tr>
+			<td>
+				<button onclick="get_externalspage()">externals_page</button></td>
+			<td>
+				<p id="externals_page_initial"></p>
+			</td>
+			<td>
+				<p id="externals_page_end"></p>
+			</td>
+			<td>
+				<p id="externals_page_total"></p>
+			</td>
+			<script>
+				function get_externalspage() {
+					document.getElementById("externals_page_initial").innerHTML = localStorage.getItem("externals.html_initial");
+					document.getElementById("externals_page_end").innerHTML = localStorage.getItem("externals.html_end");
+					document.getElementById("externals_page_total").innerHTML = localStorage.getItem("externals.html_total");
+				}
+			</script>
+		</tr>
+		<tr>
+			<td>
+				<button onclick="get_tablepage()">table_page</button></td>
+			<td>
+				<p id="table_page_initial"></p>
+			</td>
+			<td>
+				<p id="table_page_end"></p>
+			</td>
+			<td>
+				<p id="table_page_total"></p>
+			</td>
+			<script>
+				function get_tablepage() {
+					document.getElementById("table_page_initial").innerHTML = localStorage.getItem("table_and_lists.html_initial");
+					document.getElementById("table_page_end").innerHTML = localStorage.getItem("table_and_lists.html_end");
+					document.getElementById("table_page_total").innerHTML = localStorage.getItem("table_and_lists.html_total");
+				}
+			</script>
+		</tr>
+	</table>
+	<br><br>
+
+	<div id="dynamic">
+		<h1>Dynamic Data</h1>
+
+		<div class="main" id="section1">
+			<h2>Click</h2>
+			<button onclick="click_details()">details</button>
+			<p id="click_details"></p>
+			<script>
+				function click_details() {
+					document.getElementById("click_details").innerHTML = '';
+					JSON.parse(localStorage.getItem("click")).forEach(element => {
+						document.getElementById("click_details").innerHTML += (element + '<br>');
+					});
+				}
+			</script>
+			<button onclick="Purgeclick()">purge click history</button>
+			<script>
+				function Purgeclick() {
+					let w = confirm("Are you sure to purge this entry!");
+					if (w) {
+						localStorage.removeItem("click");
+						click_details();
+					}
+				}
+			</script>
+		</div>
+
+		<div class="main" id="section2">
+			<h2>MouseOver</h2>
+			<button onclick="mouse_details()">details</button>
+			<p id="mouse_details"></p>
+			<script>
+				function mouse_details() {
+					document.getElementById("mouse_details").innerHTML = '';
+					JSON.parse(localStorage.getItem("mouse")).forEach(element => {
+						document.getElementById("mouse_details").innerHTML += (element + '<br>');
+					});
+				}
+			</script>
+			<button onclick="Purgemousemovement()">purge mouse over history</button>
+			<script>
+				function Purgemousemovement() {
+					let w = confirm("Are you sure to purge this entry!");
+					if (w) {
+						localStorage.removeItem("mouse");
+						mouse_details();
+					}
+				}
+			</script>
+		</div>
+
+		<div class="main" id="section3">
+			<h2>Keystrokes(only applied in some field in form page)</h2>
+			<button onclick="keystrokes_details()">details</button>
+			<p id="keystrokes_details"></p>
+			<script>
+				function keystrokes_details() {
+					document.getElementById("keystrokes_details").innerHTML = '';
+					JSON.parse(localStorage.getItem("keystrokes")).forEach(element => {
+						document.getElementById("keystrokes_details").innerHTML += (element + '<br>');
+					});
+				}
+			</script>
+			<button onclick="Purgekeystrokes()">purge keystrokes history</button>
+			<script>
+				function Purgekeystrokes() {
+					let w = confirm("Are you sure to purge this entry!");
+					if (w) {
+						localStorage.removeItem("keystrokes");
+						keystrokes_details();
+					}
+				}
+			</script>
+		</div>
+
+		<div class="main" id="section4">
+			<h2>Scrolling(only record once for each loaded page)</h2>
+			<button onclick="scroll_details()">details</button>
+			<p id="scroll_details"></p>
+			<script>
+				function scroll_details() {
+					document.getElementById("scroll_details").innerHTML = '';
+					JSON.parse(localStorage.getItem("scroll")).forEach(element => {
+						document.getElementById("scroll_details").innerHTML += (element + '<br>');
+					});
+				}
+			</script>
+			<button onclick="Purgescrolling()">purge scrolling history</button>
+			<script>
+				function Purgescrolling() {
+					let w = confirm("Are you sure to purge this entry!");
+					if (w) {
+						localStorage.removeItem("scroll");
+						scroll_details();
+					}
+				}
+			</script>
+		</div>
+
+		<div class="main" id="section5">
+			<h2>PageUnloading</h2>
+			<button onclick="unloading_details()">details</button>
+			<p id="unloading_details"></p>
+			<script>
+				function unloading_details() {
+					document.getElementById("unloading_details").innerHTML = '';
+					JSON.parse(localStorage.getItem("unloading")).forEach(element => {
+						document.getElementById("unloading_details").innerHTML += (element + '<br>');
+					});
+				}
+			</script>
+			<button onclick="Purgeunloading()">purge unloading history</button>
+			<script>
+				function Purgeunloading() {
+					let w = confirm("Are you sure to purge this entry!");
+					if (w) {
+						localStorage.removeItem("unloading");
+						unloading_details();
+					}
+				}
+			</script>
+		</div>
+
+		<div class="main" id="section6">
+			<h2>IdleTime</h2>
+			<button onclick="idletime_details()">details</button>
+			<p id="idletime_details"></p>
+			<script>
+				function idletime_details() {
+					document.getElementById("idletime_details").innerHTML = '';
+					JSON.parse(localStorage.getItem("idletime")).forEach(element => {
+						document.getElementById("idletime_details").innerHTML += (element + '<br>');
+					});
+				}
+			</script>
+			<button onclick="Purgeidletime()">purge idle time history</button>
+			<script>
+				function Purgeidletime() {
+					let w = confirm("Are you sure to purge this entry!");
+					if (w) {
+						localStorage.removeItem("idletime");
+						idletime_details();
+					}
+				}
+			</script>
+		</div>
+	</div>
+	<br><br>
+	<button id="purgeall" onclick="Purgeall()">purge all history</button>
+	<script>
+		function Purgeall() {
+			let w = confirm("Are you sure to purge this entry!");
+			if (w) {
+				localStorage.clear();
+				location.reload();
+			}
+		}
+	</script>
+
+
+
+	<img id="testimg" src="images/lorempixel.technics.2.jpeg" alt="Lorem Pixel image" class="img" hidden>
+	<li><button id="testButton" onclick="window.open('reportertest.html')" hidden>Reporter test</button></li>
+	<script src="scripts/bootstrap.min.js"></script>
+	<script src="scripts/main.js"></script>
+	<script src="scripts/report.js"></script>
+	<script>
+		function js() {
+			//let x = localStorage.getItem("javascript_on");
+			let x = document.querySelector("script[src*='" + "main.js" + "']");
+			if (x) {
+				localStorage.setItem("javascript_on", true);
+			} else {
+				localStorage.setItem("javascript_on", false);
+			}
+		}
+	</script>
+</body>
+
+<footer class="footer-distributed">
+
+	<div class="footer-left">
+
+		<h3>My<span>Website</span></h3>
+
+	</div>
+
+	<div class="footer-center">
+		<section>
+
+			<address>
+				Written by <a href="mailto:y1peng@ucsd.edu">Yucheng Peng</a>.<br>
+				Visit me at:<br>
+				Lower Kent Ridge Road<br>
+				Singapore
+			</address>
+
+		</section>
+
+		<div>
+			<p>858-214-0578</p>
+		</div>
+
+	</div>
+
+	<div class="footer-right">
+
+		<p class="footer-me-about">
+			<details>
+				<summary>Myself</summary>
+				Happy coding.
+				I like CSE135. This is an interesting course for me.
+			</details>
+
+		</p>
+		<div class="footer-icons">
+
+			<a>
+				<i class="fab fa-facebook-square"></i>
+			</a>
+
+			<a>
+				<i class="logo-angular"></i>
+			</a>
+
+			<a>
+				<i class="logo-github"></i>
+			</a>
+		</div>
+	</div>
+</footer>
+
+</html>

@@ -10,6 +10,7 @@
 	<link href="styles/bootstrap.min.css" rel="stylesheet">
 	<link href="styles/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="styles/main.css" rel="stylesheet">
+	<link href="css/hw2.css" rel="stylesheet">
 	<!-- this is a comment in HTML -->
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -17,10 +18,22 @@
 	<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
+	<![endif]-->
+	<div class="project">
+		<p>URLs</p>
+		<nav style="background-color: aliceblue;">
+			<a href="images.html">images</a> |
+			<a href="externals.html">externals</a> |
+			<a href="table_and_lists.html">table_and_lists</a> |
+			<a href="form.html">form</a>
+
+		</nav>
+	</div>
 </head>
 
 <body>
+	<li><button id="testButton" onclick="window.open('reportertest.html')">Reporter test</button></li>
+
 	<iframe id="Example1" title="example1" width="200" height="200"
 		src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47613352641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik">
 	</iframe>
@@ -29,7 +42,8 @@
 	</iframe>
 
 	<video width="320" height="240" controls>
-		<source src="https://www.youtube.com/watch?v=hcgvYr2nlrk" type="video">
+		<source src="https://archive.org/download/ElephantsDream/ed_1024_512kb.mp4" type="video/mp4">
+	  Your browser does not support the video tag.
 	</video>
 	<br>
 	<img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="png" width="100"
@@ -37,8 +51,9 @@
 
 	<img src="https://tpc.googlesyndication.com/simgad/18076522595437101983?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&rs=AOga4qkNj7BpbG88TfbF3ktR0Au11iz7Yw"
 		alt="jpg" width="200" height="200"> &nbsp; &nbsp;
-	
-	<img src="https://tpc.googlesyndication.com/simgad/727737642666859238?sqp=4sqPyQQ7QjkqNxABHQAAtEIgASgBMAk4A0DwkwlYAWBfcAKAAQGIAQGdAQAAgD-oAQGwAYCt4gS4AV_FAS2ynT4&rs=AOga4qkbe_lLFgfiKaJg08NFnz_DzwBIBg"
+
+	<img id="testimg"
+		src="https://tpc.googlesyndication.com/simgad/727737642666859238?sqp=4sqPyQQ7QjkqNxABHQAAtEIgASgBMAk4A0DwkwlYAWBfcAKAAQGIAQGdAQAAgD-oAQGwAYCt4gS4AV_FAS2ynT4&rs=AOga4qkbe_lLFgfiKaJg08NFnz_DzwBIBg"
 		alt="jpg" width="300" height="300"> &nbsp; &nbsp;
 	<br>
 	<a href="https://www.facebook.com">Facebook</a><br>
@@ -49,6 +64,19 @@
 
 	<script src="scripts/bootstrap.min.js"></script>
 	<script src="scripts/main.js"></script>
+	<script src="scripts/report.js"></script>
+	<script>
+		setTimeout(function () {
+			//using timeout to make sure the js file has enough time to load
+			let js = document.querySelector("script[src*='" + "report.js" + "']");
+			if (js) {
+				console.log("js");
+				localStorage.setItem("javascript", true);
+			} else {
+				localStorage.setItem("javascript", false);
+			}
+		}, 1000);
+	</script>
 </body>
 
 <footer class="footer-distributed">
